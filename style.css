@@ -1,0 +1,12 @@
+body {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    height: 600px;
+    width: 400px;
+    background-color: darkgray;
+}
