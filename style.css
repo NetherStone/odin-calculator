@@ -13,4 +13,10 @@ body {
     border-radius: 20px;
     border: 2px solid;
     border-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.inner {
+    flex: 1;
 }
