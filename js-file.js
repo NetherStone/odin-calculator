@@ -1,6 +1,8 @@
-const addition = (a, b) => a + b; //Addition
+const Addition = (a, b) => a + b; //Addition
 
-const subtraction = (a, b) => a - b; //Subtraction
+const Subtraction = (a, b) => a - b; //Subtraction
 
-const result = addition(5, 3);
+const Multiplication = (a, b) => a * b; //Multiplication
+
+const result = Multiplication(5, 3);
 console.log(result);
