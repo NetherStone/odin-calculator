@@ -24,6 +24,10 @@ body {
     align-items: center;
 }
 
+#bottomRow {
+    margin-bottom: 10px;
+}
+
 #bigSize {
     flex: 1.8;
 }
