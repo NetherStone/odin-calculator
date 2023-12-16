@@ -25,11 +25,11 @@ body {
 }
 
 #bigSize {
-    flex: 1.31;
+    flex: 1.8;
 }
 
 #display {
-    height: 100px;
+    height: 140px;
     width: 380px;
     background-color: lightgray;
     border: 4px solid;
@@ -37,5 +37,12 @@ body {
 }
 
 button {
-    border-radius: 5px;
+    border-radius: 7px;
+    border: 3px solid;
+    border-color: black;
+}
+
+.oneButton {
+    height: 100px;
+    width: 97px;
 }
