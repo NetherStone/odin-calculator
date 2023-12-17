@@ -30,7 +30,9 @@ const displayContentsDiv = document.getElementById("contents");
 
 numberButtons.forEach((button) => { //Display to have numbers
     button.addEventListener("click", () => {
-        if (displayContentsDiv.textContent === "0") { 
+        if (displayContentsDiv.textContent.length === 9) {
+            displayContentsDiv.textContent = displayContentsDiv.textContent;
+        } else if (displayContentsDiv.textContent === "0") { 
             displayContentsDiv.textContent = button.textContent;
         } else {
             displayContentsDiv.textContent += button.textContent;  
