@@ -24,3 +24,16 @@ function operate (firstNumber, secondNumber, operator) {
 let firstNumber = 0; //Initialize variables
 let secondNumber = 0;
 let operator = "";
+
+const numberButtons = document.querySelectorAll(".numbers");
+const displayContentsDiv = document.getElementById("contents");
+
+numberButtons.forEach((button) => { //Display to have numbers
+    button.addEventListener("click", () => {
+        if (displayContentsDiv.textContent === "0") { 
+            displayContentsDiv.textContent = button.textContent;
+        } else {
+            displayContentsDiv.textContent += button.textContent;  
+        }
+    });
+});
