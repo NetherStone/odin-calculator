@@ -43,8 +43,11 @@ body {
 
 #contents {
     position: absolute;
+    max-height: 126px;
+    max-width: 376px;
     bottom: 0;
     right: 0;
+    word-wrap: break-word;
 }
 
 button {
