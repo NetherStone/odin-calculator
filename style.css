@@ -73,7 +73,8 @@ button {
     background-color: rgb(243, 156, 18);
 }
 
-.operator:hover {
+.operator:hover,
+.operator.active {
     background-color: rgb(187, 148, 87);
 }
 

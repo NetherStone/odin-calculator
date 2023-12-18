@@ -46,6 +46,7 @@ let firstNumber = 0; //Initialize variables
 let secondNumber = 0;
 let operator = "";
 let secondNumberCheck = false;
+let shadedButton = null;
 
 const numberButtons = document.querySelectorAll(".numbers");
 const displayContentsDiv = document.getElementById("contents");
@@ -60,6 +61,7 @@ numberButtons.forEach((button) => { //Display to have numbers
             displayContentsDiv.textContent = "";
             secondNumberCheck = false;
         }
+
         if (displayContentsDiv.textContent.length === 9) {
             displayContentsDiv.textContent = displayContentsDiv.textContent;
         } else if (displayContentsDiv.textContent === "0") { 
@@ -100,6 +102,13 @@ plusAndMinusButton.addEventListener ("click", () => { //Plus and minus button
 
 operatorButton.forEach((button) => { //Operator buttons
     button.addEventListener("click", () => {
+        if (shadedButton !== null){
+            shadedButton.classList.remove("active");
+        }
+
+        shadedButton = button;
+        shadedButton.classList.add("active");
+
         if (operator.length === 0) {
             firstNumber = parseFloat(displayContentsDiv.textContent);
             operator = button.textContent;   
