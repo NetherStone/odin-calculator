@@ -6,7 +6,7 @@ const Multiplication = (a, b) => a * b; //Multiplication
 
 const Division = (a, b) => a / b; //Division
 
-function operate (firstNumber, secondNumber, operator) {
+function operate (firstNumber, secondNumber, operator) { //Call the operator functions with numbers
     if (operator === "+") {
         return Addition(firstNumber, secondNumber)
     }
@@ -51,6 +51,7 @@ const displayContentsDiv = document.getElementById("contents");
 const decimalButton = document.getElementById("decimal");
 const clearButton = document.getElementById("clearDisplay");
 const plusAndMinusButton = document.getElementById("plusAndMinus");
+const operatorButton = document.querySelectorAll(".operator");
 
 numberButtons.forEach((button) => { //Display to have numbers
     button.addEventListener("click", () => {
@@ -60,7 +61,7 @@ numberButtons.forEach((button) => { //Display to have numbers
             displayContentsDiv.textContent = button.textContent;
         } else {
             displayContentsDiv.textContent += button.textContent;  
-        }
+        }  
     });
 });
 
@@ -90,4 +91,19 @@ plusAndMinusButton.addEventListener ("click", () => { //Plus and minus button
     } else if (digitsOneToNine(displayContentsDiv.textContent)) {
         displayContentsDiv.textContent = "-" + displayContentsDiv.textContent;
     } 
+});
+
+operatorButton.forEach((button) => { //Operator buttons
+    button.addEventListener("click", () => {
+        if (operator.length === 0) {
+            firstNumber = parseFloat(displayContentsDiv.textContent);
+            operator = button.textContent;    
+            displayContentsDiv.textContent = "";
+        } else {
+            secondNumber = parseFloat(displayContentsDiv.textContent);
+        }
+        console.log(firstNumber);
+        console.log(secondNumber + "second");
+        console.log(operator);
+    });
 });
