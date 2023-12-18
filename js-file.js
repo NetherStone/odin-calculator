@@ -27,6 +27,7 @@ let operator = "";
 
 const numberButtons = document.querySelectorAll(".numbers");
 const displayContentsDiv = document.getElementById("contents");
+const decimalButton = document.getElementById("decimal")
 
 numberButtons.forEach((button) => { //Display to have numbers
     button.addEventListener("click", () => {
@@ -38,4 +39,14 @@ numberButtons.forEach((button) => { //Display to have numbers
             displayContentsDiv.textContent += button.textContent;  
         }
     });
+});
+
+decimalButton.addEventListener ("click", () => {
+    if (displayContentsDiv.textContent.length === 9) {
+        displayContentsDiv.textContent = displayContentsDiv.textContent;
+    } else if (displayContentsDiv.textContent === "0") {
+        displayContentsDiv.textContent += decimalButton.textContent; 
+    } else {
+        displayContentsDiv.textContent += decimalButton.textContent;  
+    }
 });
