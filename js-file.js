@@ -21,6 +21,22 @@ function operate (firstNumber, secondNumber, operator) {
     }
 }
 
+function duplicateCheck(display, targetToCheck) { //Checker for decimals and +/-
+    let dupeCount = 0;
+
+    for (let i = 0; i < display.length; i++) {
+        let char = display[i];
+        if (char === targetToCheck) {
+            dupeCount++;
+            if (dupeCount >= 1) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 let firstNumber = 0; //Initialize variables
 let secondNumber = 0;
 let operator = "";
@@ -41,11 +57,13 @@ numberButtons.forEach((button) => { //Display to have numbers
     });
 });
 
-decimalButton.addEventListener ("click", () => {
+decimalButton.addEventListener ("click", () => { //Display to have decimal
     if (displayContentsDiv.textContent.length === 9) {
         displayContentsDiv.textContent = displayContentsDiv.textContent;
     } else if (displayContentsDiv.textContent === "0") {
         displayContentsDiv.textContent += decimalButton.textContent; 
+    } else if (duplicateCheck(displayContentsDiv.textContent, ".")) {
+        displayContentsDiv.textContent = displayContentsDiv.textContent;
     } else {
         displayContentsDiv.textContent += decimalButton.textContent;  
     }
