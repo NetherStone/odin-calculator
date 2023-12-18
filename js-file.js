@@ -45,6 +45,7 @@ function digitsOneToNine(display) { //Check for digits one to nine
 let firstNumber = 0; //Initialize variables
 let secondNumber = 0;
 let operator = "";
+let secondNumberCheck = false;
 
 const numberButtons = document.querySelectorAll(".numbers");
 const displayContentsDiv = document.getElementById("contents");
@@ -55,6 +56,10 @@ const operatorButton = document.querySelectorAll(".operator");
 
 numberButtons.forEach((button) => { //Display to have numbers
     button.addEventListener("click", () => {
+        if (operator.length === 1 && secondNumberCheck === true) { //flag checking
+            displayContentsDiv.textContent = "";
+            secondNumberCheck = false;
+        }
         if (displayContentsDiv.textContent.length === 9) {
             displayContentsDiv.textContent = displayContentsDiv.textContent;
         } else if (displayContentsDiv.textContent === "0") { 
@@ -97,13 +102,10 @@ operatorButton.forEach((button) => { //Operator buttons
     button.addEventListener("click", () => {
         if (operator.length === 0) {
             firstNumber = parseFloat(displayContentsDiv.textContent);
-            operator = button.textContent;    
-            displayContentsDiv.textContent = "";
+            operator = button.textContent;   
+            secondNumberCheck = true; 
         } else {
             secondNumber = parseFloat(displayContentsDiv.textContent);
         }
-        console.log(firstNumber);
-        console.log(secondNumber + "second");
-        console.log(operator);
     });
 });
