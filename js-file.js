@@ -43,7 +43,8 @@ let operator = "";
 
 const numberButtons = document.querySelectorAll(".numbers");
 const displayContentsDiv = document.getElementById("contents");
-const decimalButton = document.getElementById("decimal")
+const decimalButton = document.getElementById("decimal");
+const clearButton = document.getElementById("clearDisplay")
 
 numberButtons.forEach((button) => { //Display to have numbers
     button.addEventListener("click", () => {
@@ -67,4 +68,8 @@ decimalButton.addEventListener ("click", () => { //Display to have decimal
     } else {
         displayContentsDiv.textContent += decimalButton.textContent;  
     }
+});
+
+clearButton.addEventListener ("click", () => { //Clear button
+    displayContentsDiv.textContent = 0;
 });
