@@ -44,7 +44,7 @@ function digitsOneToNine(display) { //Check for digits one to nine
 
 let firstNumber = 0; //Initialize variables
 let secondNumber = 0;
-let operator = "";
+let operator = [];
 let secondNumberCheck = false;
 let shadedButton = null;
 
@@ -111,7 +111,7 @@ operatorButton.forEach((button) => { //Operator buttons
 
         if (operator.length === 0) {
             firstNumber = parseFloat(displayContentsDiv.textContent);
-            operator = button.textContent;   
+            operator.push(displayContentsDiv.textContent);  
             secondNumberCheck = true; 
         } else {
             secondNumber = parseFloat(displayContentsDiv.textContent);
