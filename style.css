@@ -60,9 +60,19 @@ button {
 .oneButton {
     height: 88px;
     width: 97px;
+    font-size: larger;
 }
 
 .bigButton {
     height: 88px;
     width: 194px;
+    font-size: larger;
+}
+
+.operator {
+    background-color: orange;
+}
+
+.threeTop {
+    background-color: pink;
 }
