@@ -110,11 +110,13 @@ operatorButton.forEach((button) => { //Operator buttons
         shadedButton.classList.add("active");
 
         operator.push(button.textContent);
+        firstNumber = parseFloat(displayContentsDiv.textContent);
 
-        if (operator.includes("=") && operate.length == 1) {
-            firstNumber = parseFloat(displayContentsDiv.textContent);
+        if (operator.includes("=") && operator.length == 1) {
             secondNumberCheck = true;
             operator = [];
+            shadedButton.classList.remove("active");
+            shadedButton = null;
         }
 
         //if (operator.length === 0 && secondNumberCheck === false) {
@@ -125,10 +127,5 @@ operatorButton.forEach((button) => { //Operator buttons
             //secondNumber = parseFloat(displayContentsDiv.textContent);
             //operator.push(displayContentsDiv.textContent);  
        // }
-
-       //if (operator.includes("=") && operate.length == 1) {
-            //secondNumberCheck = true;
-            //operator = [];
-        //}
     });
 });
