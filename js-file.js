@@ -113,39 +113,43 @@ operatorButton.forEach((button) => { //Operator buttons
 
         operator.push(button.textContent);
 
-        if (secondNumberCheck === false && firstNumberCheck === false){
-            firstNumber = parseFloat(displayContentsDiv.textContent);  
-            secondNumberCheck = true;
-            firstNumberCheck = true;
-        }
+        //if (secondNumberCheck === false && firstNumberCheck === false){
+            //firstNumber = parseFloat(displayContentsDiv.textContent);  
+            //secondNumberCheck = true;
+            //firstNumberCheck = true;
+        //}
 
-        if (operator.includes("=") && operator.length === 1) { //If user repeatedly presses equals
-            secondNumberCheck = true;
-            operator = [];
-            shadedButton.classList.remove("active");
-            shadedButton = null;
-        }
+        // if (operator.includes("=") && operator.length === 1) { //If user repeatedly presses equals
+        //     secondNumberCheck = true;
+        //     operator = [];
+        //     shadedButton.classList.remove("active");
+        //     shadedButton = null;
+        // }
 
-        if (operator.length === 2){
-            secondNumber = parseFloat(displayContentsDiv.textContent);
-            operator = operator.filter(element => element !== "=");
-            secondNumberCheck = true;
-            result = operate(firstNumber, secondNumber, operator[0]);
-            firstNumber = result;
-            operator = [];
-            secondNumber = 0;
-            result = result.toString();
-            displayContentsDiv.textContent = result;
-        }
+        // if (operator.length === 2){
+        //     secondNumber = parseFloat(displayContentsDiv.textContent);
+        //     operator = operator.filter(element => element !== "=");
+        //     secondNumberCheck = true;
+        //     result = operate(firstNumber, secondNumber, operator[0]);
+        //     firstNumber = result;
+        //     if (operator.length === 2) {
+        //         operator = operator.shift();
+        //     } else {
+        //         operator = [];
+        //     }
+        //     secondNumber = 0;
+        //     result = result.toString();
+        //     displayContentsDiv.textContent = result;
+        // }
 
-        if (result !== null && operator.length === 1){ //Continuous operations
-            secondNumber = parseFloat(displayContentsDiv.textContent);
-            result = operate(firstNumber, secondNumber, operator[0]);
-            firstNumber = result;
-            operator = [];
-            secondNumber = 0;
-            result = result.toString();
-            displayContentsDiv.textContent = result;
-        }
+        // if (result !== null && operator.length === 1){ //Continuous operations
+        //     secondNumber = parseFloat(displayContentsDiv.textContent);
+        //     result = operate(firstNumber, secondNumber, operator[0]);
+        //     firstNumber = result;
+        //     operator = [];
+        //     secondNumber = 0;
+        //     result = result.toString();
+        //     displayContentsDiv.textContent = result;
+       // }
     });
 });
