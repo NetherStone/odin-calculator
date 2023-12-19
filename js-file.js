@@ -109,12 +109,26 @@ operatorButton.forEach((button) => { //Operator buttons
         shadedButton = button;
         shadedButton.classList.add("active");
 
-        if (operator.length === 0) {
+        operator.push(button.textContent);
+
+        if (operator.includes("=") && operate.length == 1) {
             firstNumber = parseFloat(displayContentsDiv.textContent);
-            operator.push(displayContentsDiv.textContent);  
-            secondNumberCheck = true; 
-        } else {
-            secondNumber = parseFloat(displayContentsDiv.textContent);
+            secondNumberCheck = true;
+            operator = [];
         }
+
+        //if (operator.length === 0 && secondNumberCheck === false) {
+            //firstNumber = parseFloat(displayContentsDiv.textContent);
+            //operator.push(displayContentsDiv.textContent);  
+            //secondNumberCheck = true; 
+        //} else {
+            //secondNumber = parseFloat(displayContentsDiv.textContent);
+            //operator.push(displayContentsDiv.textContent);  
+       // }
+
+       //if (operator.includes("=") && operate.length == 1) {
+            //secondNumberCheck = true;
+            //operator = [];
+        //}
     });
 });
