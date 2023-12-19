@@ -42,11 +42,12 @@ function digitsOneToNine(display) { //Check for digits one to nine
     return digitsRegex.test(display);
 }
 
-let firstNumber = 0; //Initialize variables
-let secondNumber = 0;
+let firstNumber = null; //Initialize variables
+let secondNumber = null;
 let operator = [];
-let firstNumberCheck = false;
-let secondNumberCheck = false;
+let displayRefresh = false;
+// let firstNumberCheck = false;
+// let secondNumberCheck = false;
 let shadedButton = null;
 let result = null;
 
@@ -59,9 +60,14 @@ const operatorButton = document.querySelectorAll(".operator");
 
 numberButtons.forEach((button) => { //Display to have numbers
     button.addEventListener("click", () => {
-        if (operator.length === 1 && secondNumberCheck === true || firstNumberCheck === true) { //flag checking
+        // if (operator.length === 1 && secondNumberCheck === true || firstNumberCheck === true) { //flag checking
+        //     displayContentsDiv.textContent = "";
+        //     secondNumberCheck = false;
+        // }
+
+        if (displayRefresh === true) {
             displayContentsDiv.textContent = "";
-            secondNumberCheck = false;
+            displayRefresh = false;
         }
 
         if (displayContentsDiv.textContent.length === 9) {
@@ -117,6 +123,9 @@ operatorButton.forEach((button) => { //Operator buttons
             operator = [];
             shadedButton.classList.remove("active");
             shadedButton = null;
+        } else if (firstNumber === null) {
+            firstNumber = parseFloat(displayContentsDiv.textContent);
+            displayRefresh = true;
         }
 
         //if (secondNumberCheck === false && firstNumberCheck === false){
