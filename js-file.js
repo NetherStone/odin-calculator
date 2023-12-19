@@ -46,8 +46,6 @@ let firstNumber = null; //Initialize variables
 let secondNumber = null;
 let operator = [];
 let displayRefresh = false;
-// let firstNumberCheck = false;
-// let secondNumberCheck = false;
 let shadedButton = null;
 let result = null;
 
@@ -126,6 +124,10 @@ operatorButton.forEach((button) => { //Operator buttons
         } else if (firstNumber === null) {
             firstNumber = parseFloat(displayContentsDiv.textContent);
             displayRefresh = true;
+        }
+
+        if (firstNumber !== null && operator.length === 1) {
+            secondNumber = parseFloat(displayContentsDiv.textContent);
         }
 
         //if (secondNumberCheck === false && firstNumberCheck === false){
