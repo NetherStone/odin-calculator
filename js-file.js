@@ -48,7 +48,7 @@ let operator = [];
 let firstNumberCheck = false;
 let secondNumberCheck = false;
 let shadedButton = null;
-let result = 0;
+let result = null;
 
 const numberButtons = document.querySelectorAll(".numbers");
 const displayContentsDiv = document.getElementById("contents");
@@ -59,7 +59,7 @@ const operatorButton = document.querySelectorAll(".operator");
 
 numberButtons.forEach((button) => { //Display to have numbers
     button.addEventListener("click", () => {
-        if (operator.length === 1 && secondNumberCheck === true) { //flag checking
+        if (operator.length === 1 && secondNumberCheck === true || firstNumberCheck === true) { //flag checking
             displayContentsDiv.textContent = "";
             secondNumberCheck = false;
         }
@@ -119,7 +119,7 @@ operatorButton.forEach((button) => { //Operator buttons
             firstNumberCheck = true;
         }
 
-        if (operator.includes("=") && operator.length == 1) {
+        if (operator.includes("=") && operator.length === 1) { //If user repeatedly presses equals
             secondNumberCheck = true;
             operator = [];
             shadedButton.classList.remove("active");
@@ -138,13 +138,14 @@ operatorButton.forEach((button) => { //Operator buttons
             displayContentsDiv.textContent = result;
         }
 
-        //if (operator.length === 0 && secondNumberCheck === false) {
-            //firstNumber = parseFloat(displayContentsDiv.textContent);
-            //operator.push(displayContentsDiv.textContent);  
-            //secondNumberCheck = true; 
-        //} else {
-            //secondNumber = parseFloat(displayContentsDiv.textContent);
-            //operator.push(displayContentsDiv.textContent);  
-       // }
+        if (result !== null && operator.length === 1){ //Continuous operations
+            secondNumber = parseFloat(displayContentsDiv.textContent);
+            result = operate(firstNumber, secondNumber, operator[0]);
+            firstNumber = result;
+            operator = [];
+            secondNumber = 0;
+            result = result.toString();
+            displayContentsDiv.textContent = result;
+        }
     });
 });
