@@ -113,18 +113,17 @@ operatorButton.forEach((button) => { //Operator buttons
 
         operator.push(button.textContent);
 
+        if (operator.includes("=") && operator.length === 1) { //If user repeatedly presses equals
+            operator = [];
+            shadedButton.classList.remove("active");
+            shadedButton = null;
+        }
+
         //if (secondNumberCheck === false && firstNumberCheck === false){
             //firstNumber = parseFloat(displayContentsDiv.textContent);  
             //secondNumberCheck = true;
             //firstNumberCheck = true;
         //}
-
-        // if (operator.includes("=") && operator.length === 1) { //If user repeatedly presses equals
-        //     secondNumberCheck = true;
-        //     operator = [];
-        //     shadedButton.classList.remove("active");
-        //     shadedButton = null;
-        // }
 
         // if (operator.length === 2){
         //     secondNumber = parseFloat(displayContentsDiv.textContent);
