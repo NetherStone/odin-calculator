@@ -115,6 +115,7 @@ plusAndMinusButton.addEventListener ("click", () => { //Plus and minus button
 
 operatorButton.forEach((button) => { //Operator buttons
     button.addEventListener("click", () => {
+
         if (shadedButton !== null){
             shadedButton.classList.remove("active");
         }
@@ -137,12 +138,16 @@ operatorButton.forEach((button) => { //Operator buttons
             console.log(`second number ${secondNumber}`)
         }
 
-        // if (secondNumber !== null && operator.length === 2 && operator.includes("=")) {
-        //     operator = operator.filter(element => element !== "=");
-        //     result = operate(firstNumber, secondNumber, operator[0]);
-        //     firstNumber = result;
-        //     displayContentsDiv.textContent = result.toString();
-        // }
+         if (secondNumber !== null && operator.length === 2 && operator.includes("=")) {
+            operator = operator.filter(element => element !== "=");
+            result = operate(firstNumber, secondNumber, operator[0]);
+            firstNumber = result;
+            displayContentsDiv.textContent = result.toString();
+            console.log(`result ${result}`)
+            displayRefresh = true;
+            secondNumber = null;
+            operator = [];
+         }
 
         //if (secondNumberCheck === false && firstNumberCheck === false){
             //firstNumber = parseFloat(displayContentsDiv.textContent);  
