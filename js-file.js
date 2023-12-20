@@ -92,6 +92,13 @@ decimalButton.addEventListener ("click", () => { //Display to have decimal
 
 clearButton.addEventListener ("click", () => { //Clear button
     displayContentsDiv.textContent = 0;
+    firstNumber = null; 
+    secondNumber = null;
+    operator = [];
+    displayRefresh = false;
+    shadedButton = null;
+    result = null;
+
 });
 
 plusAndMinusButton.addEventListener ("click", () => { //Plus and minus button
