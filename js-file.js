@@ -122,7 +122,7 @@ operatorButton.forEach((button) => { //Operator buttons
         shadedButton = button;
         shadedButton.classList.add("active");
 
-        operator.push(button.textContent);
+        operator.push(button.textContent);  
 
         if (operator.includes("=") && operator.length === 1) { //If user repeatedly presses equals
             operator = [];
@@ -130,12 +130,19 @@ operatorButton.forEach((button) => { //Operator buttons
             shadedButton = null;
         } else if (firstNumber === null) {
             firstNumber = parseFloat(displayContentsDiv.textContent);
+            console.log(`first number ${firstNumber}`)
             displayRefresh = true;
+        } else if (secondNumber === null) {
+            secondNumber =  parseFloat(displayContentsDiv.textContent);
+            console.log(`second number ${secondNumber}`)
         }
 
-        if (firstNumber !== null && operator.length === 1) {
-            secondNumber = parseFloat(displayContentsDiv.textContent);
-        }
+        // if (secondNumber !== null && operator.length === 2 && operator.includes("=")) {
+        //     operator = operator.filter(element => element !== "=");
+        //     result = operate(firstNumber, secondNumber, operator[0]);
+        //     firstNumber = result;
+        //     displayContentsDiv.textContent = result.toString();
+        // }
 
         //if (secondNumberCheck === false && firstNumberCheck === false){
             //firstNumber = parseFloat(displayContentsDiv.textContent);  
